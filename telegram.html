@@ -6,15 +6,14 @@ function Send()
 { 
   var token = document.getElementById("token").value;
   var chat_id = document.getElementById("chat_id").value;
-  var parse_mode = document.getElementById("parse_mode").value;
   var text = document.getElementById("text").value;
-
+  var parse_mode = document.getElementById("parse_mode").value;
    
   var sendUrl_Telegram = "https://api.telegram.org/bot";
   sendUrl_Telegram = sendUrl_Telegram + token + "/sendMessage?";
   sendUrl_Telegram = sendUrl_Telegram + "chat_id=" + chat_id;
-  sendUrl_Telegram = sendUrl_Telegram + "&parse_mode=" + parse_mode;
   sendUrl_Telegram = sendUrl_Telegram + "&text=" + text;
+  sendUrl_Telegram = sendUrl_Telegram + "&parse_mode=" + parse_mode;
 
   document.getElementById("telegram").action = sendUrl_Telegram;
   document.getElementById("telegram").submit();
