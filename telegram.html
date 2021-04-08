@@ -1,11 +1,29 @@
 <html>
 <head><title>AVMS Telegram</title></head>
 <body>
-    <form method="GET" action="https://api.telegram.org/bot" + url.searchParams.get("token") + "/sendMessage">
-        <input type="hidden" name="chat_id" value="-439971644">
-        <input type="hidden" name="parse_mod" value="HTML">
-        <textarea name="text"></textarea>
-        <input type="submit" value="Submit">
+<script type="text/javascript">     
+function Clcik()
+{ 
+  var token = url.searchParams.get("token") ;
+  var chat_id = document.getElementById("chat_id").value ;
+  var text = document.getElementById("text").value ;
+  var parse_mod = document.getElementById("parse_mod").value ;
+    
+  var sendUrl_Telegram = "https://api.telegram.org/bot" ;
+  sendUrl_Telegram = sendUrl_Telegram + token + "/sendMessage?" ;
+  sendUrl_Telegram = sendUrl_Telegram + "chat_id=" + chat_id ;
+  sendUrl_Telegram = sendUrl_Telegram + "&text=" + text ;
+  sendUrl_Telegram = sendUrl_Telegram + "&parse_mode=" + parse_mod ;
+    
+  document.getElementById("telegram").action = sendUrl_Telegram;
+  document.getElementById("telegram").submit();
+}
+</script>   
+    <form method="POST" action="" id="telegram" name="telegram">
+        <input type="hidden" id="chat_id" name="chat_id" value="-439971644">
+        <input type="hidden" id="parse_mod" name="parse_mod" value="HTML">
+        <textarea name="text" id="text"></textarea>
+        <input type="button" value="Save" id="btnSave" name="btnSave" onclick='Click()'>
     </form>
 </body>
 </html>
