@@ -1,7 +1,7 @@
 <html>
 <head><title>AVMS Telegram</title></head>
 <body>
-    <form method="GET" action="https://api.telegram.org/bot1261997201:AAH5xNTI2MmdURTB8xFvIa2pmEaAAW_Q7sU/sendMessage">
+    <form method="GET" action="https://api.telegram.org/bot" + url.searchParams.get("token") + "/sendMessage">
         <input type="hidden" name="chat_id" value="-439971644">
         <input type="hidden" name="parse_mod" value="HTML">
         <textarea name="text"></textarea>
