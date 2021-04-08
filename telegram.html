@@ -2,36 +2,51 @@
 <head><title>AVMS Telegram</title></head>
 <body>
 <script type="text/javascript"> 
-function Click()
+function Send()
 { 
   var token = document.getElementById("token").value;
   var chat_id = document.getElementById("chat_id").value;
+  var parse_mode = document.getElementById("parse_mode").value;
   var text = document.getElementById("text").value;
-  var parse_mod = document.getElementById("parse_mod").value;
+
    
   var sendUrl_Telegram = "https://api.telegram.org/bot";
   sendUrl_Telegram = sendUrl_Telegram + token + "/sendMessage?";
   sendUrl_Telegram = sendUrl_Telegram + "chat_id=" + chat_id;
+  sendUrl_Telegram = sendUrl_Telegram + "&parse_mode=" + parse_mode;
   sendUrl_Telegram = sendUrl_Telegram + "&text=" + text;
-  sendUrl_Telegram = sendUrl_Telegram + "&parse_mode=" + parse_mod;
-  
+
   document.getElementById("telegram").action = sendUrl_Telegram;
   document.getElementById("telegram").submit();
 }
 </script>   
     <form method="POST" action="" id="telegram" name="telegram">
-        <input type="visible" id="token" name="token" value="">
-        <input type="visible" id="chat_id" name="chat_id" value="">
-        <input type="visible" id="parse_mod" name="parse_mod" value="">
-        <textarea name="text" id="text"></textarea>
-        <input type="button" value="Save" id="btnSave" name="btnSave" onclick='Click()'>
+	<table>	
+	<tr>
+		<td>Token : </td>
+        	<td><input type="visible" id="token" name="token" value=""></td>
+	</tr>
+	<tr>
+		<td>Chat ID : </td>        
+		<td><input type="visible" id="chat_id" name="chat_id" value=""></td>
+	</tr>
+	<tr>	
+		<td>Parse Mode : </td>            
+		<td><input type="visible" id="parse_mode" name="parse_mode" value=""></td>
+	</tr>
+	<tr>
+		<td>Text : </td>            
+		<td><textarea name="text" id="text"></textarea></td>
+        <tr>
+        <table>	
+        <input type="button" value="Send" id="btnSend" name="btnSend" onclick='Send()'>
     </form>
   
 <script type="text/javascript"> 
 const urlParams = new URLSearchParams(window.location.search);
 document.getElementById("token").value = urlParams.get("token");
 document.getElementById("chat_id").value = urlParams.get("chat_id");
-document.getElementById("parse_mod").value = urlParams.get("parse_mod");
+document.getElementById("parse_mode").value = urlParams.get("parse_mode");
 </script>     
 </body>
 </html>
