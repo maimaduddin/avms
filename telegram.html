@@ -1,7 +1,7 @@
 <html>
 <head><title>AVMS Telegram</title></head>
 <body>
-<script type="text/javascript">     
+<script type="text/javascript"> 
 function Click()
 { 
   const urlParams = new URLSearchParams(window.location.search);
@@ -22,10 +22,16 @@ function Click()
 }
 </script>   
     <form method="POST" action="" id="telegram" name="telegram">
-        <input type="hidden" id="chat_id" name="chat_id" value="-439971644">
-        <input type="hidden" id="parse_mod" name="parse_mod" value="HTML">
+        <input type="visible" id="token" name="token" value="">
+        <input type="visible" id="chat_id" name="chat_id" value="-439971644">
+        <input type="visible" id="parse_mod" name="parse_mod" value="HTML">
         <textarea name="text" id="text"></textarea>
         <input type="button" value="Save" id="btnSave" name="btnSave" onclick='Click()'>
     </form>
+  
+<script type="text/javascript"> 
+const urlParams = new URLSearchParams(window.location.search);
+document.getElementById("token").value = urlParams.get("token");  
+</script>     
 </body>
 </html>
