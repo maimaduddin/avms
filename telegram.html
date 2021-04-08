@@ -4,18 +4,21 @@
 <script type="text/javascript">     
 function Click()
 { 
-  alert("Warning");
-  var token = url.searchParams.get("token") ;
-  var chat_id = document.getElementById("chat_id").value ;
-  var text = document.getElementById("text").value ;
-  var parse_mod = document.getElementById("parse_mod").value ;
-    
-  var sendUrl_Telegram = "https://api.telegram.org/bot" ;
-  sendUrl_Telegram = sendUrl_Telegram + token + "/sendMessage?" ;
-  sendUrl_Telegram = sendUrl_Telegram + "chat_id=" + chat_id ;
-  sendUrl_Telegram = sendUrl_Telegram + "&text=" + text ;
-  sendUrl_Telegram = sendUrl_Telegram + "&parse_mode=" + parse_mod ;
-    
+  const urlParams = new URLSearchParams(window.location.search);
+
+  var token = urlParams.get("token");
+  var chat_id = document.getElementById("chat_id").value;
+  var text = document.getElementById("text").value;
+  var parse_mod = document.getElementById("parse_mod").value;
+  
+alert(token);  
+  
+  var sendUrl_Telegram = "https://api.telegram.org/bot";
+  sendUrl_Telegram = sendUrl_Telegram + token + "/sendMessage?";
+  sendUrl_Telegram = sendUrl_Telegram + "chat_id=" + chat_id;
+  sendUrl_Telegram = sendUrl_Telegram + "&text=" + text;
+  sendUrl_Telegram = sendUrl_Telegram + "&parse_mode=" + parse_mod;
+  
   document.getElementById("telegram").action = sendUrl_Telegram;
   document.getElementById("telegram").submit();
 }
